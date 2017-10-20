@@ -1,6 +1,19 @@
+function remove() {
+    var inputs = document.querySelectorAll(".error");
+    if (inputs) {
+        [].forEach.call(inputs, function (item) {
+            var parent = item.parentNode
+            var element = document.querySelector(".error")
+
+            parent.removeChild(element)
+        })
+    }
+}
+
 function check_form(e)
 {
     var inputs = document.getElementsByTagName("input");
+    remove();
 
     [].forEach.call(inputs, function (item) {
         var error_parent = item.parentNode;

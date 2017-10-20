@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+    <title>Form validation challenge</title>
+    <style>
+        .error {
+            color: red;
+            display: inline-block;
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Form validation challenge</h1>
+            <form id="form">
+                <div class="form-group">
+                    <label>Required field:</label>
+                    <input type="text" class="form-control" data-required="1">
+                </div>
+                <div class="form-group">
+                    <label>Max length 8:</label>
+                    <input type="text" class="form-control"  data-required="0" data-max="8">
+                </div>
+                <div class="form-group">
+                    <label>Required - Min length 10 - Max length 25:</label>
+                    <input type="text" class="form-control required min" data-required="1" data-min="10" data-max="25">
+                </div>
+                <div class="form-group">
+                    <label>Not required - Min length 10 - Max length 25:</label>
+                    <input type="text" class="form-control min" data-required="0" data-min="10" data-max="25">
+                </div>
+                <div class="form-group">
+                    <label>Letters only:</label>
+                    <input type="text" class="form-control" data-required="0" data-symbols="letters">
+                </div>
+                <div class="radio">
+                    <strong>Not required:</strong><br>
+                    <label><input type="radio" name="required" value="1" id="yes"> Yes</label>
+                    <label><input type="radio" name="required" value="0"> No</label>
+                </div>
+                <div class="form-group">
+                    <label>Required if above field is Yes:</label>
+                    <input type="text" class="form-control additional" data-required="0">
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="saveForm" class="btn btn-success" value="Validate!">
+                </div>
+                <div id="optional">
+                    <h4>Optional</h4>
+                    <div class="form-group">
+                        <label>Valid email:</label>
+                        <input type="email" class="form-control email" data-email="1">
+                    </div>
+                </div>
+                <div id="respond"></div>
+            </form>
+        </div>
+    </div>
+</div>
 
+
+<script src="validation_function_form3.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>$("#respond").load("form_3.html #optional")</script>
 </body>
 </html>
